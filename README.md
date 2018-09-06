@@ -19,22 +19,22 @@ pip3 install beautifulsoup4
 
 
 ### 例：
-打开任意一个问答页面；
+- 打开任意一个问答页面；
 
-如果问题描述没有完全展开，请点击 **显示全部**；
+- 如果问题描述没有完全展开，请点击 **显示全部**；
 
-如果打开的是显示特定答案的页面，请点击 **查看全部 xxx 个回答**；
+- 如果打开的是显示特定答案的页面，请点击 **查看全部 xxx 个回答**；
 
-![点击显示全部](https://github.com/xuejianbest/images/blob/master/getzhihu/%E6%98%BE%E7%A4%BA.png)
+  ![点击显示全部](https://github.com/xuejianbest/images/blob/master/getzhihu/%E6%98%BE%E7%A4%BA.png)
 
 
-为了页面能够加载出更多的答案，手动将浏览器竖直滚动条多往下拉几次；
+- 为了页面能够加载出更多的答案，手动将浏览器竖直滚动条多往下拉几次；
 
-右键鼠标，选**查看网页源代码**(快捷键Ctrl+U），将源码内容全部复制到当前目录下的html.txt文件保存；
+- 右键鼠标，选**查看网页源代码**(快捷键Ctrl+U），将源码内容全部复制到当前目录下的html.txt文件保存；
 
-运行脚本：
-```shell
-pyhton3 saveHtml2Txt.py
-```
+- 运行脚本：
+  ```shell
+  pyhton3 saveHtml2Txt.py
+  ```
 
-运行成功显示`done....`，结果将保存为当前目录下txt文件。
+- 运行成功显示`done....`，结果将保存为当前目录下txt文件。
