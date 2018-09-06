@@ -49,11 +49,23 @@ for answer in answers:
 
 #对结果按照点赞数进行排序
 def vo(mp):
-    s = mp['voter']
-    s = s.replace('\n', ' ')
-    if len(s.split(' ')) < 3:
+    if not 'voter' in mp:
         return 0
-    return int(s.split(' ')[-3].replace(',', ''))
+    s = mp['voter']
+    if s == None:
+        return 0
+    s = s.replace('\n', ' ')
+    li = s.split(' ')
+    li.reverse()
+    vcount = 0
+    for e in li:
+        try:
+            vcount = int(e)
+            break
+        except ValueError:
+            pass
+    
+    return vcount
 answers_map_list.sort(key = vo, reverse = True)
 
 #将提取的问题和答案信息保存到文件
