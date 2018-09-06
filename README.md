@@ -38,7 +38,7 @@ pip3 install beautifulsoup4
 
 - 运行当前目录下的脚本文件：
   ```shell
-  pyhton3 saveHtml2Txt.py
+  python3 saveHtml2Txt.py
   ```
 
 - 运行成功显示`done....`，结果将保存为当前目录下txt文件。
