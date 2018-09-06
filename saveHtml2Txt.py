@@ -60,7 +60,7 @@ def vo(mp):
     vcount = 0
     for e in li:
         try:
-            vcount = int(e)
+            vcount = int(e.replace(',', ''))
             break
         except ValueError:
             pass
