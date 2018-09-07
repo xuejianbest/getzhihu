@@ -6,9 +6,9 @@
 
 基于pyhon3.0
 
-安装beautifulsoup4
+安装beautifulsoup4和lxml
 ```shell
-pip3 install beautifulsoup4
+pip3 install beautifulsoup4 lxml
 ```
 
 ### 使用方法：

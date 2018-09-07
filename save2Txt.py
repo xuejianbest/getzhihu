@@ -1,6 +1,6 @@
-#从html.txt文件中分析网页结构，此文件是网页源文件
+#从source.html文件中分析网页结构，此文件是网页源文件
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(open("html.txt", "r", encoding='utf-8'), 'lxml')
+soup = BeautifulSoup(open("source.html", "r", encoding='utf-8'), 'lxml')
 
 def getContentOfTag(tag):
     '''获取一个Tag对象的内容'''
@@ -11,7 +11,7 @@ def getContentOfTag(tag):
     return content
         
 #问题标题
-question_title = getContentOfTag(soup.title)
+question_title = getContentOfTag(soup.find("h1", class_="QuestionHeader-title"))
 #问题描述
 question_desc = getContentOfTag(soup.find("span",class_="RichText ztext"))
 #总共有的回答数量
@@ -55,22 +55,24 @@ def vo(mp):
     if s == None:
         return 0
     s = s.replace('\n', ' ')
-    li = s.split(' ')
-    li.reverse()
-    vcount = 0
-    for e in li:
-        try:
-            vcount = int(e.replace(',', ''))
-            break
-        except ValueError:
-            pass
-    
-    return vcount
+    for e in s.split(' ')[::-1]:
+        e = e.replace(',', '')
+        if(e.isdigit()):
+            return int(e)
+    return 0
+
 answers_map_list.sort(key = vo, reverse = True)
 
 #将提取的问题和答案信息保存到文件
 sep = "-*-"
-with open(question_title.strip() + ".txt", "w", encoding='utf-8') as file:
+
+#文件名不能出现的字符
+no_file_name = ["\\", "/", ":", "*", "?", "\"", "<", ">", "|"]
+file_name = question_title.strip()
+for c in no_file_name:
+    file_name = file_name.replace(c, "")
+
+with open(file_name + ".txt", "w", encoding='utf-8') as file:
     file.write(question_title)
     file.write(question_desc)
     file.write(all_answer_count)
